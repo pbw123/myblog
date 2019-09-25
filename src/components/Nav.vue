@@ -7,7 +7,7 @@
 				<div class="menu">
 					<li>
 						<router-link to="/home" class="item">首页</router-link>
-						<router-view></router-view>
+						
 					</li>
 					<li>
 						<router-link to="/dynamic" class="item">动态</router-link>
@@ -20,6 +20,7 @@
 					</li>
 				</div>
 			</div>
+			<router-view></router-view>
 	</div>
 </template>
 

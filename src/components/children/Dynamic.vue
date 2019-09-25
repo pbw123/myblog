@@ -7,5 +7,5 @@
 <script>
 </script>
 
-<style>
+<style scoped="scoped" lang="scss">
 </style>

@@ -1,19 +1,22 @@
 <template>
 	<div class="home">
-		首页
+		<div class="left"></div>
+		<div class="right">
+			<right1></right1>
+		</div>
 	</div>
 </template>
 
 <script>
 	// // @ is an alias to /src
-	// import Nav from '../components/Nav.vue'
+	import Right1 from '@/components/children/Right1.vue'
 
-	// export default {
-	// 	name: 'home',
-	// 	components: {
-	// 		Nav
-	// 	}
-	// }
+	export default {
+		name: 'home',
+		components: {
+			Right1
+		}
+	}
 </script>
 
 <style lang="scss" scoped>

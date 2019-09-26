@@ -43,7 +43,7 @@
 </template>
 
 <script>
-	const wechat = require('../../imgs/wechat.jpg')
+	const wechat = require('../imgs/wechat.jpg')
 	export default {
 		data() {
 			return {

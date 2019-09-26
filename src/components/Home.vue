@@ -17,16 +17,17 @@
 		<div class="right">
 			<right1></right1>
 		</div>
+		
 	</div>
 </template>
 
 <script>
-	import Right1 from '@/components/children/Right1.vue'
-	import Article from '@/components/children/Article.vue'
-	const img1=require('../../imgs/c1.png')
-	const img2=require('../../imgs/c2.png')
-	const img3=require('../../imgs/c3.png')
-	const img4=require('../../imgs/c4.png')
+	import Right1 from '@/components/Right1.vue'
+	import Article from '@/components/Article.vue'
+	const img1=require('../imgs/c1.png')
+	const img2=require('../imgs/c2.png')
+	const img3=require('../imgs/c3.png')
+	const img4=require('../imgs/c4.png')
 	export default {
 		name: 'home',
 		components: {
@@ -71,5 +72,9 @@
 		}
 	}
 
-	body {}
+	body{
+		margin: 0;
+		padding: 0;
+		background: rgb(255, 251, 240);
+	}
 </style>

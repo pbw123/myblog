@@ -33,7 +33,7 @@
 </template>
 
 <script>
-	const img1=require('../../imgs/c5.png')
+	const img1=require('../imgs/c5.png')
 	export default{
 		data(){
 			return {
@@ -52,6 +52,7 @@
 <style lang="scss" scoped="scoped">
 	.article{
 		margin-top: 50px;
+		background: rgb(255, 251, 240);
 		.type{
 			font-size: 26px;
 			font-family: "microsoft yahei";
@@ -127,5 +128,10 @@
 		}	
 		
 		}
+	}
+	html,body{
+		margin: 0;
+		padding: 0;
+		background: rgb(255, 251, 240);
 	}
 </style>

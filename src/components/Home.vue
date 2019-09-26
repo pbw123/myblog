@@ -1,46 +1,53 @@
 <template>
 	<div class="home">
 		<div class="left">
-         <div class="carousel">
-			 <el-carousel>
-			   <el-carousel-item v-for="item in imgs" :key="item.url">
-			     <img :src="item.url" />
-			   </el-carousel-item>
-			 </el-carousel>
-		 </div>
-		 
-		 <div class="article">
-			 <Article></Article>
-		 </div>
-			  
+			<div class="carousel">
+				<el-carousel>
+					<el-carousel-item v-for="item in imgs" :key="item.url">
+						<img :src="item.url" />
+					</el-carousel-item>
+				</el-carousel>
+			</div>
+
+			<div class="article">
+				<Article type="最新文章"></Article>
+			</div>
+
 		</div>
 		<div class="right">
-			<right1></right1>
+			<Right></Right>
 		</div>
-		
+
 	</div>
 </template>
 
 <script>
-	import Right1 from '@/components/Right1.vue'
+	import Right from '@/components/Right.vue'
 	import Article from '@/components/Article.vue'
-	const img1=require('../imgs/c1.png')
-	const img2=require('../imgs/c2.png')
-	const img3=require('../imgs/c3.png')
-	const img4=require('../imgs/c4.png')
+	const img1 = require('../imgs/c1.png')
+	const img2 = require('../imgs/c2.png')
+	const img3 = require('../imgs/c3.png')
+	const img4 = require('../imgs/c4.png')
 	export default {
 		name: 'home',
 		components: {
-			Right1,
+			Right,
 			Article
 		},
 		data() {
 			return {
-				imgs:[
-					{url:img1},
-					{url:img2},
-					{url:img3},
-					{url:img4}
+				imgs: [{
+						url: img1
+					},
+					{
+						url: img2
+					},
+					{
+						url: img3
+					},
+					{
+						url: img4
+					}
 				]
 			}
 		}
@@ -64,7 +71,11 @@
 
 		.left {
 			flex: 0 0 70%;
-         margin-right: 30px;
+			margin-right: 30px;
+			
+			.carousel{
+				margin-bottom: 50px;
+			}
 		}
 
 		.right {
@@ -72,7 +83,7 @@
 		}
 	}
 
-	body{
+	body {
 		margin: 0;
 		padding: 0;
 		background: rgb(255, 251, 240);

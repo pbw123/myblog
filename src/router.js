@@ -29,5 +29,6 @@ export default new Router({
 			path: '/message',
 			component: Message
 		}
-	]
+	],
+	linkActiveClass:'active'
 })

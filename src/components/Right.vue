@@ -3,7 +3,7 @@
 		<div class="attention">
 			<div class="title">关注我</div>
 			<div class="logo">
-				<div class="item" v-for="item in contacts" :key="item.name">
+				<div class="item" v-for="(item,index) in contacts" :key="index">
 					<div class="icon">
 						<img :src="item.img" alt="">
 					</div>
@@ -19,7 +19,7 @@
 			<div class="title">
 				最新文章
 			</div>
-			<div class="article-list" v-for="item in lists" :key="item.title">
+			<div class="article-list" v-for="(item,index) in lists" :key="index">
 				<li>{{item.title}}</li>
 			</div>
 		</div>
@@ -29,7 +29,7 @@
 				友情链接
 			</div>
 			<div class="link-list">
-				<span class="list-item" v-for="item in links" :key="item.name">
+				<span class="list-item" v-for="(item,index) in links" :key="index">
 					<a :href="item.url">{{item.name}}</a>
 				</span>
 
@@ -81,6 +81,18 @@
 					},
 					{
 						img: wechat,
+						name: '公众号'
+					},
+					{
+						img: wechat,
+						name: '简书'
+					},
+					{
+						img: wechat,
+						name: 'CSDN'
+					},
+					{
+						img: wechat,
 						name: '微信'
 					}
 				],
@@ -128,13 +140,13 @@
 		background-color: rgb(255, 251, 240);
 
 		.logo {
-			display: flex;
+			display: grid;
+			grid-template-columns: repeat(4, 25%);
+			grid-template-rows:90px 90px;
 			margin-top: 10px;
 
 			.item {
-				flex: 0 0 25%;
-				flex-direction: column;
-
+			
 				.icon {
 					width: 100%;
 					justify-content: center;
@@ -149,9 +161,9 @@
 				.name {
 					display: flex;
 					justify-content: center;
-					font-size: 16px;
+					font-size: 14px;
 					color: rgb(116, 127, 140);
-					margin-top: 10px;
+					margin-top: 6px;
 				}
 
 			}
@@ -192,7 +204,7 @@
 					font-size: 20px;
 					white-space: nowrap;
 
-					a{
+					a {
 						text-decoration: none;
 						color: rgb(102, 102, 102);
 					}

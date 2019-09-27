@@ -46,6 +46,7 @@
 		.left {
 			flex: 0 0 70%;
          margin-right: 30px;
+		 min-width: 800px;
 		}
 
 		.right {

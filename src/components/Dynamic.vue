@@ -50,7 +50,6 @@
 		.left {
 			flex: 0 0 70%;
          margin-right: 30px;
-		 background-color: red;
 		}
 
 		.right {

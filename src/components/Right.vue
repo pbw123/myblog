@@ -4,11 +4,31 @@
 			<div class="title">关注我</div>
 			<div class="logo">
 				<div class="item" v-for="(item,index) in contacts" :key="index">
-					<div class="icon">
-						<img :src="item.img" alt="">
+					<div v-if="item.name==='微信'">
+						<el-tooltip placement="bottom" effect="light">
+						  <div slot="content">
+							  <img src="../imgs/gzh.jpg" style="width: 300px;">
+						  </div>
+						  <div>
+							  <div class="icon">
+							  	<img :src="item.img" alt="">
+							  </div>
+							  <div class="name">
+							  	{{item.name}}
+							  </div>
+						  </div>
+						</el-tooltip>
 					</div>
-					<div class="name">
-						{{item.name}}
+					
+					<div v-else>
+						<a href="https:\\www.baidu.com">
+							<div class="icon">
+								<img :src="item.img" alt="">
+							</div>
+						</a>
+						<div class="name">
+							{{item.name}}
+						</div>
 					</div>
 				</div>
 
@@ -151,10 +171,16 @@
 					width: 100%;
 					justify-content: center;
 					display: flex;
+					
+					
 
 					img {
 						width: 70%;
 						height: 70%;
+						
+						&:hover{
+							opacity: 0.3;
+						}
 					}
 				}
 

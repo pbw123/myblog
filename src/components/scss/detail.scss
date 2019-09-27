@@ -1,0 +1,73 @@
+
+.container{
+		width: 80%;
+		margin: 25px auto;
+		display: flex;
+		min-width: 800px;
+		.left{
+			flex: 0 0 70%;
+             margin-right: 30px;	
+			 min-width: 800px;
+					 
+			.type {
+				border-bottom: 5px solid rgb(219, 109, 76);
+				margin-top: 10px;
+				.tip{
+					font-size: 23px;
+					line-height: 35px;
+					font-family: "microsoft yahei";
+					color: '#474645';
+					font-weight: bold;
+				}
+				.place{
+					font-size: 23px;
+					line-height: 35px;
+					span{
+						margin-right: 6px;
+					}
+				}
+			}
+			
+			.title{
+				font-size: 50px;
+			}
+			.msg{
+				margin-top: 20px;
+				display: flex;
+				flex-direction: row;
+			}
+			$rgbcolor:rgb(231, 72, 81) !global 
+			.content{
+				margin-top: 50px;
+			}
+			.money{
+				display: flex;
+				width: 60%;
+				float: right;
+				
+				.scan{
+					flex: 0 0 25%;
+					background-color: red;
+				}
+				
+				.praise{
+					flex: 0 0 25%;
+					background-color: blue;
+				}
+				.reward{
+					flex: 0 0 50%;
+				
+				.word{
+					font-size: 20px;
+				}	
+				}
+				
+				
+				
+			}
+		}
+		
+		.right {
+			width: 350px;
+		}
+	}

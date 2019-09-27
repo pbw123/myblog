@@ -1,23 +1,36 @@
 <template>
 	<div class="container">
 	<div class="left">
-		<div class="type"></div>
+		<div class="type">
+			<span class="tip">您现在所在的位置是：</span>
+			<span class="place">
+				<span>首页</span>
+				<span>></span>
+				<span>文章详情</span>
+				<span>></span>
+			</span>
+		</div>
 		<div class="article-detail">
-			<div class="top">
 				<div class="title">{{article.title}}</div>
 				<div class="msg">
 					<div class="author">{{article.author}}</div>
 					<div class="time">{{article.time}}</div>
 				</div>
-			</div>
 			
 			<div class="content">
 				{{article.content}}
 			</div>
 			
 			<div class="money">
-				
+				<div class="reward">
+					  <el-button type="danger" round class="word" size="medium">打赏</el-button>
+				</div>
+				<div class="praise">赞{{article.praise}}</div>
+				<div class="scan">浏览{{article.scan}}</div>
 			</div>
+			
+			<Comment :comments="coms" :msg="msg"></Comment>
+			
 		</div>
 		</div>
 		
@@ -29,39 +42,32 @@
 
 <script>
 	import Right from '@/components/Right.vue'
+	import Comment from '@/components/Comment.vue'
+	const img5 = require('../imgs/c5.png')
 	export default{
 		data(){
 			return {
-				article:{
-						id:1,
-						title:'这是文章标题',
-						content:'这是文章内容',
-						time:'2019-9-27 12:49',
-						praise:99,
-						scan:565
-				}
+				article:this.$route.params.article,
+				msg:{
+					count:45,
+					kind:'评论'
+				},
+				coms:[
+					{img:img5,name:'Joker',content:'这是文章评论内容',time:'2019-9-26 21:16'},
+					{img:img5,name:'Joker',content:'这是文章评论内容',time:'2019-9-26 21:16'},
+					{img:img5,name:'Joker',content:'这是文章评论内容',time:'2019-9-26 21:16'},
+					{img:img5,name:'Joker',content:'这是文章评论内容',time:'2019-9-26 21:16'}
+				]
 			}
 		},
 		components:{
-			Right
+			Right,
+			Comment
 		}
 		
 	}
 </script>
 
 <style lang="scss" scoped>
-	.container{
-		width: 80%;
-		margin: 25px auto;
-		display: flex;
-		.left{
-			flex: 0 0 70%;
-			margin-right: 30px;
-		}
-		
-		.right {
-			width: 350px;
-		}
-	}
-	
+	@import "@/components/scss/detail.scss"
 </style>

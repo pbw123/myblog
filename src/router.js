@@ -16,6 +16,7 @@ export default new Router({
 		},
 		{
 			path: '/home',
+			name:'/Home',
 			component: Home
 		},
 		{
@@ -32,8 +33,12 @@ export default new Router({
 		},
 		{
 			path: '/detail',
+			name:'/Detail',
 			component: Detail
 		}
 	],
-	linkActiveClass:'active'
+	linkActiveClass:'active',
+	scrollBehavior (to, from, savedPosition) {
+	  return { x: 0, y: 0 }
+	}
 })

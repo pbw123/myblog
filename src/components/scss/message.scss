@@ -2,7 +2,9 @@
 		box-sizing: border-box;
 	}
 
-	$rgbcolor:rgb(231, 72, 81) !global .home {
+	$rgbcolor:rgb(231, 72, 81) !global 
+	
+	.home {
 		width: 80%;
 		margin: 25px auto;
 		display: flex;

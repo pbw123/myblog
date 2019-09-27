@@ -4,6 +4,7 @@ import About from '@/components/About.vue'
 import Home from '@/components/Home.vue'
 import Dynamic from '@/components/Dynamic.vue'
 import Message from '@/components/Message.vue'
+import Detail from '@/components/Detail.vue'
 Vue.use(Router)
 
 export default new Router({
@@ -28,6 +29,10 @@ export default new Router({
 		{
 			path: '/message',
 			component: Message
+		},
+		{
+			path: '/detail',
+			component: Detail
 		}
 	],
 	linkActiveClass:'active'

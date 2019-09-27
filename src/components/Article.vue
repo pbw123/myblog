@@ -4,7 +4,7 @@
 			{{type}}
 		</div>
 		<div class="article-list" >
-			<div class="article-item" v-for="item in articles" :key="item.id">
+			<div class="article-item" v-for="item in articles" :key="item.id" @click="goDetail(item.id)">
 				<div class="left">
 					<img :src="item.img" />
 				</div>
@@ -46,6 +46,11 @@
 				{id:3,title:'这是文章标题',content:'最近吃辅食孩子肠胃不消化，天天研究孩子的粑粑，我闻一遍我老公闻一遍，观察粑粑的状态，成分，是否有粘液，是否有蔬菜残留物，是否有未消化的高铁，妈呀，真是养儿方知父母恩，作为新手妈妈，我的内心总是处于惶恐焦虑的状态。孩子',author:'Joker',time:'2019-9-25 15:48',scan:99,praise:88,comment:9,img:img1},
 				{id:4,title:'这是文章标题',content:'最近吃辅食孩子肠胃不消化，天天研究孩子的粑粑，我闻一遍我老公闻一遍，观察粑粑的状态，成分，是否有粘液，是否有蔬菜残留物，是否有未消化的高铁，妈呀，真是养儿方知父母恩，作为新手妈妈，我的内心总是处于惶恐焦虑的状态。孩子',author:'Joker',time:'2019-9-25 15:48',scan:99,praise:88,comment:9,img:img1},
 			]
+			}
+		},
+		methods:{
+			goDetail(val){
+				this.$router.push('/detail')
 			}
 		}
 	}

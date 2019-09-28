@@ -5,6 +5,7 @@ import Home from '@/components/Home.vue'
 import Dynamic from '@/components/Dynamic.vue'
 import Message from '@/components/Message.vue'
 import Detail from '@/components/Detail.vue'
+import Register from '@/components/Register.vue'
 Vue.use(Router)
 
 export default new Router({
@@ -35,6 +36,11 @@ export default new Router({
 			path: '/detail',
 			name:'/Detail',
 			component: Detail
+		},
+		{
+			path: '/register',
+			name:'/Register',
+			component: Register
 		}
 		
 		

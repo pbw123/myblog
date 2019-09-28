@@ -1,7 +1,7 @@
 <template>
 	<div class="home">
 		<div class="left">
-		 
+		 <Register></Register>
 		</div>
 		<div class="right">
 			<Right></Right>
@@ -13,6 +13,7 @@
 <script>
 	import Right from '@/components/Right.vue'
 	import Article from '@/components/Article.vue'
+	import Register from '@/components/Register.vue'
 	const img1=require('../imgs/c1.png')
 	const img2=require('../imgs/c2.png')
 	const img3=require('../imgs/c3.png')
@@ -21,7 +22,8 @@
 		name: 'home',
 		components: {
 			Right,
-			Article
+			Article,
+			Register
 		},
 		data() {
 			return {

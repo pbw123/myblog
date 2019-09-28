@@ -77,16 +77,18 @@
 		}
 	}
 	.active{
-		background-color: rgb(236, 245, 255);
-		border: 1.5px ghostwhite solid;
-		outline: none;
+		border-bottom: 4px rgb(247, 120, 37) solid;
+		border-top: 0px;
 		width: 150px;
 		height: 50px;
+		background-color: white;
+		cursor: pointer;
 	}
 	.defaultClass{
-		background-color: white;
-		border: 1.5px ghostwhite solid;
-		outline: none;
 		width: 150px;
 		height: 50px;
+		background-color: white;
+		border-top: 0px;
+		cursor: pointer;
 	}
+	

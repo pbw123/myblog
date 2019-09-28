@@ -26,8 +26,12 @@
 						<el-popover placement="left" width="370" trigger="click">
 								<div class="model">
 									<div class="btn" style="display: flex;justify-content: center;">
-										<button  id="btn1" @click="btn1" :class="[ btn1Active ? active : defaultClass]">微信</button>
-										<button  id="btn2" @click="btn2" :class="[ btn2Active ? active : defaultClass]">支付宝</button>
+										<div  style="line-height: 50px;text-align: center;" id="btn1" @click="btn1" :class="[ btn1Active ? active : defaultClass]">
+											微信
+											</div>
+										<div style="line-height: 50px;text-align: center;" id="btn2" @click="btn2" :class="[ btn2Active ? active : defaultClass]">
+											支付宝
+											</div>
 									</div>
 									<div id="div1">
 										<img src="../imgs/gzh.jpg" style="width: 350px;" />

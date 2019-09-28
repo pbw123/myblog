@@ -36,6 +36,10 @@
 		},
 		data() {
 			return {
+				srcList: [
+				  'http://img3.imgtn.bdimg.com/it/u=2579838268,1716293199&fm=26&gp=0.jpg',
+				  'https://c-ssl.duitang.com/uploads/item/201701/11/20170111181351_U2Z8C.thumb.700_0.jpeg'
+				],
 				imgs: [{
 						url: img1
 					},

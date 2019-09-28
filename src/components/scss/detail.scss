@@ -42,32 +42,51 @@
 			}
 			.money{
 				display: flex;
-				width: 60%;
+				width: 50%;
 				float: right;
+				margin-top: 50px;
 				
 				.scan{
-					flex: 0 0 25%;
-					background-color: red;
-				}
 				
-				.praise{
+				}
+				.info{
 					flex: 0 0 25%;
-					background-color: blue;
+					text-align: right;
+					font-size: 20px;
+					padding-top: 10px;
+					color: rgb(153, 153, 153);
+				}
+				.praise{
+					
 				}
 				.reward{
-					flex: 0 0 50%;
-				
+					flex: 0 0 40%;
+					
 				.word{
 					font-size: 20px;
 				}	
 				}
-				
-				
-				
+			}
+			.com{
+				margin-top: 150px;
 			}
 		}
 		
 		.right {
 			width: 350px;
 		}
+	}
+	.active{
+		background-color: rgb(236, 245, 255);
+		border: 1.5px ghostwhite solid;
+		outline: none;
+		width: 150px;
+		height: 50px;
+	}
+	.defaultClass{
+		background-color: white;
+		border: 1.5px ghostwhite solid;
+		outline: none;
+		width: 150px;
+		height: 50px;
 	}

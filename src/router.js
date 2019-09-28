@@ -36,6 +36,8 @@ export default new Router({
 			name:'/Detail',
 			component: Detail
 		}
+		
+		
 	],
 	linkActiveClass:'active',
 	scrollBehavior (to, from, savedPosition) {

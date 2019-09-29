@@ -30,19 +30,19 @@
 				<div class="money">
 					<div class="reward">
 						<el-popover placement="left" width="370" trigger="click">
-								<div class="model">
-									<div class="btn" style="display: flex;justify-content: center;">
-										<div  style="line-height: 50px;text-align: center;" id="btn1" @click="btn1" :class="[ btn1Active ? active : defaultClass]">
-											微信
-											</div>
-										<div style="line-height: 50px;text-align: center;" id="btn2" @click="btn2" :class="[ btn2Active ? active : defaultClass]">
-											支付宝
-											</div>
+							<div class="model">
+								<div class="btn" style="display: flex;justify-content: center;">
+									<div style="line-height: 50px;text-align: center;" id="btn1" @click="btn1" :class="[ btn1Active ? active : defaultClass]">
+										微信
 									</div>
-									<div id="div1">
-										<img src="../imgs/gzh.jpg" style="width: 350px;" />
+									<div style="line-height: 50px;text-align: center;" id="btn2" @click="btn2" :class="[ btn2Active ? active : defaultClass]">
+										支付宝
 									</div>
 								</div>
+								<div id="div1">
+									<img src="../imgs/gzh.jpg" style="width: 350px;" />
+								</div>
+							</div>
 							<el-button slot="reference" type="danger" round class="word" size="medium">打赏</el-button>
 						</el-popover>
 
@@ -64,7 +64,7 @@
 						</div>
 					</div>
 				</div>
-				
+
 				<div class="com">
 					<Comment :comments="coms" :msg="msg"></Comment>
 				</div>
@@ -84,8 +84,9 @@
 	export default {
 		data() {
 			return {
-				isOne:1,
-				article:JSON.parse(localStorage.getItem('data')),
+				isOne: 1,
+				// article:JSON.parse(localStorage.getItem('data')),
+				article: {},
 				msg: {
 					count: 45,
 					kind: '评论'
@@ -115,11 +116,11 @@
 						time: '2019-9-26 21:16'
 					}
 				],
-				btn1Active:true,
-				btn2Active:false,
-				defaultClass:'defaultClass',
-				active:'active'
-				
+				btn1Active: true,
+				btn2Active: false,
+				defaultClass: 'defaultClass',
+				active: 'active'
+
 			}
 		},
 		components: {
@@ -132,23 +133,26 @@
 		methods: {
 			btn1() {
 				div1.innerHTML = '<img src="/img/gzh.9664391d.jpg" style="width:350px" />';
-				this.btn1Active=true
-				this.btn2Active=false
+				this.btn1Active = true
+				this.btn2Active = false
 			},
 			btn2() {
 				div1.innerHTML = '<img src="https://static.yezismile.com/sun/images/weichat.jpg" style="width:350px" />';
-				this.btn2Active=true
-				this.btn1Active=false
+				this.btn2Active = true
+				this.btn1Active = false
 			},
-			setArticleData(){
-				
-				console.log(this.isOne+'java')
-				if(this.isOne===1){
-					console.log(this.isOne)
-					this.isOne=2
-					console.log(this.isOne+'java')
+			setArticleData() {
+				var is = this.$route.params.article === undefined
+				if (is) {
+					console.log(is+'以后走的if是这里')
+					var d=JSON.parse(localStorage.getItem('data'))
+					console.log(d)
+					this.article = d
+				} else {
+					console.log(is+'第一次路由进来走的else是这里')
+					this.article = this.$route.params.article
+					localStorage.setItem('data',JSON.stringify(this.$route.params.article))
 				}
-				localStorage.setItem('data',JSON.stringify(this.$route.params.article))
 			}
 		}
 

@@ -1,4 +1,4 @@
-2019-09-23
+## 2019-09-23
 ***
 用Vue CLI3搭建了的项目的基本结构，将代码推送到远程，遇到的问题主要有两个
 
@@ -15,7 +15,7 @@
 sass-loader是css预处理器，可以在CLI创建项目的时候安装，也可以项目创建完成后手动安装
 [参考链接](https://majing.io/posts/10000017191170)
 
-9-24
+## 9-24
 ***
 使用二级路由完成导航栏的开发
 
@@ -51,7 +51,7 @@ justify-content: center;
 
 ![](https://user-gold-cdn.xitu.io/2019/9/24/16d6378522819501?w=190&h=77&f=png&s=2053)
 
-9-25
+## 9-25
 ***
 遇到的问题主要有
 
@@ -132,7 +132,7 @@ data() {
 ```
 [参考链接](https://www.cnblogs.com/top5/archive/2009/09/08/1562240.html)
 
-9-26
+## 9-26
 ***
 我说为什么在App.vue的body标签的不起作用呢，原来是用scoped指定了只在当前组件有效
 
@@ -199,7 +199,7 @@ min-width属性和width=100%的配合使用、使用element-ui的上传图片组
 
 今天就到这吧。夜深人静，晚安！
 
-9-27
+## 9-27
 ***
 路由跳转回到页面顶部，[官网](https://router.vuejs.org/zh/guide/advanced/scroll-behavior.html#%E5%BC%82%E6%AD%A5%E6%BB%9A%E5%8A%A8)
 
@@ -253,7 +253,7 @@ article:this.$route.params.article
 ![](https://user-gold-cdn.xitu.io/2019/9/27/16d73371f9adee0c?w=979&h=525&f=png&s=364967)
 将昨天写的留言功能封装成一个组件，这样在文章的评论就可以直接复用，无需重复造轮子，文章详情是通过路由携带数据跳转进入的，有个问题是，当刷新该页面的时页面没有数据，控件台报错，这也在意料之中，这里的设计思路是当第一次通过路由跳转进入时，将数据保存起来(后面是否需要vuex)，当刷新页面的时候，再将保存的数据取出渲染到页面，如果保存的数据不存在了，再发起网络请求调用后台接口。这样的好处是减少网络请求，减少服务器开销。
 
-9-28
+## 9-28
 ***
 innerHTML改变页面div元素
 [参考](https://segmentfault.com/q/1010000016909014)，打赏功能用了这种方式
@@ -267,3 +267,154 @@ innerHTML改变页面div元素
 ![](https://user-gold-cdn.xitu.io/2019/9/28/16d7881dd5483a0a?w=966&h=738&f=gif&s=5184448)
 
 ![](https://user-gold-cdn.xitu.io/2019/9/28/16d7883efdd31d0e?w=908&h=679&f=png&s=152955)
+
+9-29
+***
+**今日总结**
+
+因为大部分功能都有了，今基本没有添加什么额外的功能，主要就是处理一些细节。使用阿里云的图标库给页面添加图标，添加了限制评论输入框字数上限功能，这里还是被卡了一会儿，结合输入框元素(input或textarea)自带的maxLength属性和vue的watch来监听属性值变化，当然实现方式很多，我使用了自己觉得最简单的一种，灵感来源于下面这段代码
+
+```
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<script src="https://cdn.bootcss.com/vue/2.4.2/vue.min.js"></script>
+</head>
+<body>
+    <div id="app">
+        <input type="text" v-model="items.text" ref="count"/>
+        <div  v-html="number"></div>
+    </div>
+    <script>
+        new Vue({
+            el: '#app',
+            data: {
+                number: '100',
+                items: {
+                    text:'',
+                },
+            },
+            watch:{   //watch()监听某个值（双向绑定）的变化，从而达到change事件监听的效果
+                items:{
+                    handler:function(){
+                        var _this = this;
+                        var _sum = 100; //字体限制为100个
+                        _this.$refs.count.setAttribute("maxlength",_sum);
+                        _this.number= _sum- _this.$refs.count.value.length;
+                    },
+                    deep:true
+                }
+            }
+        })
+    </script>
+</body>
+</html>
+
+ - handle就是你watch中需要具体执行的方法
+ - deep：就是你需要监听的数据的深度，一般用来监听对象中某个属性的变化
+ - immediate：在选项参数中指定 immediate: true 将立即以表达式的当前值触发回调
+```
+不过我觉得我的更简单，代码更少，如下
+
+```、
+<template>
+<div class="comment-content">
+<textarea class="" placeholder="既然来了,就说几句吧" v-model="textarea" :maxlength="maxLength"></textarea>
+<div class="len">您还可以输入{{len}}个字</div>
+</div>
+</template>
+<script>
+export default {
+		data() {
+			return {
+				textarea:'',
+				maxLength:150,
+				len:150
+			}
+		},
+		watch:{
+			textarea(){
+					  this.len=this.maxLength - this.textarea.length
+			}
+		}
+	}
+</script>
+```
+实现的效果如下
+
+![](https://user-gold-cdn.xitu.io/2019/9/29/16d7d8a7fdfcff15?w=1105&h=402&f=png&s=43623)
+当然，这里其它代码、样式都没有贴出来
+
+其次就是解决了之前留下来的问题：从文章列表通过路由携带数据跳转到文章详细页面可以正常渲染数据，但是当强制刷新浏览器的时候，数据消失，控制台报属性未定义的错误。在解决这个问题的过程中遇到的问题首先是对localStorage的使用并熟练，毕竟自己第一次用，之前倒是看到别人用过,下面就是我目前了解到的
+
+对浏览器来说，使用 Web Storage 存储键值对比存储 Cookie 方式更直观，而且容量更大，它包含两种：localStorage 和 sessionStorage。
+注意:sessionStorage 和 localStorage 的用法基本一致，引用类型的值要转换成JSON（JSON.stringify()）,相应的取出来需要解析JSON.parse()，这里就只列举localStorage
+
+**保存**
+```
+//对象
+const info = { name: 'hou', age: 24, id: '001' };
+//字符串
+const str="haha";
+localStorage.setItem('hou', JSON.stringify(info));
+localStorage.setItem('zheng', str);
+```
+**获取**
+```
+var data1 = JSON.parse(localStorage.getItem('hou'));
+var data2 = localStorage.getItem('zheng');
+```
+**删除**
+```
+/删除某个
+localStorage.removeItem('hou');
+//删除所有
+localStorage.clear();
+```
+**浏览器中查看**
+![](https://user-gold-cdn.xitu.io/2019/9/29/16d7d9f7d37a0745?w=751&h=336&f=png&s=44995)
+
+localStorage有效期是永久的。一般的浏览器能存储的是5MB左右。sessionStorage api与localStorage相同。
+sessionStorage默认的有效期是浏览器的会话时间（也就是说标签页关闭后就消失了）。
+localStorage作用域是协议、主机名、端口。（理论上，不人为的删除，一直存在设备中）
+sessionStorage作用域是窗口、协议、主机名、端口。
+
+知道了这些知识点后，你的问题就很好解决了。
+localStorage是window上的。所以不需要写this.localStorage，vue中如果写this，是指vue实例。会报错
+
+[参考](https://www.cnblogs.com/houzheng/p/9067110.html)
+
+2）localStorage的使用问题解决了，那么接下来要怎么做呢，其实实现思路挺简单的，只是我一开始没有想到而已
+在methods中定义一个方法
+
+```
+methods{{
+setArticleData() {
+var is = this.$route.params.article === undefined
+if (is) {
+console.log(is+'以后走的if是这里')
+var d=JSON.parse(localStorage.getItem('data'))
+console.log(d)
+this.article = d
+} else {
+console.log(is+'第一次路由进来走的else是这里')
+this.article = this.$route.params.article
+localStorage.setItem('data',JSON.stringify(this.$route.params.article))
+	}
+}			
+}
+```
+放入到mounted()或created(),这两个是vue的生命周期函数，vue实例被创建时就会自动执行
+
+```
+created() {
+this.setArticleData();
+}
+```
+这段代码应该很好理解，不需要再做过多的解释，一切尽在代码中

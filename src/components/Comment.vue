@@ -2,7 +2,7 @@
 	<div>
 		<div class="comment">
 			<div class="user-msg" @click="dialogFormVisible = true">
-				<img v-if="imageUrl" :src="imageUrl" class="avatar">
+				<img v-if="" :src="imageUrl" class="avatar">
 			</div>
 
 			<el-dialog title="" :visible.sync="dialogFormVisible">
@@ -20,7 +20,8 @@
 			</el-dialog>
 
 			<div class="comment-content">
-				<textarea class="" placeholder="既然来了,就说几句吧"></textarea>
+				<textarea class="" placeholder="既然来了,就说几句吧" v-model="textarea" :maxlength="maxLength"></textarea>
+				<div class="len">您还可以输入{{len}}个字</div>
 			</div>
 			<div class="comment-commit">
 				<div class="say">畅所欲言</div>
@@ -73,6 +74,14 @@
 				look: 'look',
 				formLabelWidth: '120px',
 				imageUrl: img5,
+				textarea:'',
+				maxLength:150,
+				len:150
+			}
+		},
+		watch:{
+			textarea(){
+					  this.len=this.maxLength - this.textarea.length
 			}
 		},
 		components: {

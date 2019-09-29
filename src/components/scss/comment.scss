@@ -37,6 +37,9 @@ $rgbcolor:rgb(231, 72, 81) !global
 				background-color: rgb(255, 251, 240);
 				font-size: 20px;
 			}
+			.len{
+				color: $rgbcolor;
+			}
 		}
 
 		&-commit {

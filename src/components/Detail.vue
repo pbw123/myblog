@@ -14,7 +14,7 @@
 				<div class="title">{{article.title}}</div>
 				<div class="msg">
 					<div class="author">
-						<div class="icon"><img src="../imgs/user.png" alt=""></div>
+						<div class="icon"><img src="../imgs/user2.png" alt=""></div>
 						<div class="word">{{article.author}}</div>
 					</div>
 					<div class="author">
@@ -57,7 +57,7 @@
 					</div>
 					<div class="scan info">
 						<div class="icon" style="padding-top: 3px;">
-							<img src="../imgs/eye.png" alt="">
+							<img src="../imgs/eye2.png" alt="">
 						</div>
 						<div class="word">
 							浏览({{article.scan}}）

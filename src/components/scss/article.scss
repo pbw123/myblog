@@ -1,0 +1,111 @@
+.article {
+		background: rgb(255, 251, 240);
+
+		.type {
+			font-size: 26px;
+			font-family: "microsoft yahei";
+			color: '#474645';
+			font-weight: bold;
+			border-bottom: 5px solid rgb(219, 109, 76);
+			padding-bottom: 10px;
+		}
+
+		.article-list {
+			cursor: pointer;
+
+			.article-item {
+				display: flex;
+				height: 270px;
+				align-items: center;
+				border-bottom: 1.5px solid rgb(191, 171, 134);
+
+				.left {
+					width: 260px;
+					height: 210px;
+				}
+
+				.right {
+					display: flex;
+					height: 210px;
+					flex-direction: column;
+					margin-left: 20px;
+
+					.title {
+						font-size: 26px;
+						font-family: "microsoft yahei";
+						color: '#474645';
+						font-weight: bold;
+					}
+
+					.content {
+						margin-top: 20px;
+						height: 84px;
+						line-height: 28px;
+						font-weight: lighter;
+						font-family: "行楷";
+						width: 490px;
+						color: rgb(119, 119, 119);
+						font-size: 15px;
+						overflow: hidden;
+
+					}
+
+					.messages {
+						display: flex;
+						flex-direction: row;
+						width: 100%;
+						justify-content: space-between;
+						font-size: 13px;
+						line-height: 60px;
+						color: rgb(153, 153, 166);
+
+						.msg-left {
+							display: flex;
+							li {
+								display: flex;
+								list-style: none;
+								margin-right: 10px;
+								
+								.icon{
+									padding-top: 3px;
+									img{
+										width: 20px;
+									}
+								}
+								.word{
+									margin-left: 3px;
+								}
+							}
+						}
+
+						.msg-right {
+							display: flex;
+							li {
+								float: right;
+								list-style: none;
+								display: flex;
+								list-style: none;
+								margin-right: 10px;
+								
+								.icon{
+									padding-top: 5px;
+									img{
+										width: 20px;
+									}
+								}
+								.word{
+									margin-left: 3px;
+								}
+							
+							}
+						}
+					}
+				}
+
+				&:hover {
+					background-color: white;
+				}
+			}
+
+		}
+	}

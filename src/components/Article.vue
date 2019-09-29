@@ -18,26 +18,26 @@
 					<div class="messages">
 						<div class="msg-left">
 							<li>
-							<div class="icon"><img src="../imgs/user.png"></div>
+							<div class="icon"><img src="../imgs/user2.png"></div>
 							<div class="word">{{item.author}}</div>
 							</li>
 							<li>
-							<div class="icon"><img src="../imgs/time.png"></div>
+							<div class="icon"><img src="../imgs/time2.png"></div>
 							<div class="word">{{item.time}}</div>
 							</li>
 						</div>
 						<div class="msg-right">
 							<li>
-							<div class="icon" style="padding-top: 3px;"><img src="../imgs/praise.png"></div>
-							<div class="word">{{item.praise}}</div>
+							<div class="icon" ><img src="../imgs/praise.png"></div>
+							<div class="word">点赞({{item.praise}})</div>
 							</li>
 							<li>
-							<div class="icon"><img src="../imgs/eye.png"></div>
-							<div class="word">{{item.scan}}</div>
+							<div class="icon"><img src="../imgs/eye2.png"></div>
+							<div class="word">浏览({{item.scan}})</div>
 							</li>
 							<li>
-							<div class="icon" style="padding-top: 5px;"><img src="../imgs/comment.png"></div>
-							<div class="word">{{item.comment}}</div>
+							<div class="icon"><img src="../imgs/comment2.png"></div>
+							<div class="word">评论({{item.comment}})</div>
 							</li>
 						</div>
 					</div>
@@ -116,110 +116,5 @@
 </script>
 
 <style lang="scss" scoped="scoped">
-	.article {
-		background: rgb(255, 251, 240);
-
-		.type {
-			font-size: 26px;
-			font-family: "microsoft yahei";
-			color: '#474645';
-			font-weight: bold;
-			border-bottom: 5px solid rgb(219, 109, 76);
-			padding-bottom: 10px;
-		}
-
-		.article-list {
-			cursor: pointer;
-
-			.article-item {
-				display: flex;
-				height: 270px;
-				align-items: center;
-				border-bottom: 1.5px solid rgb(191, 171, 134);
-
-				.left {
-					width: 260px;
-					height: 210px;
-				}
-
-				.right {
-					display: flex;
-					height: 210px;
-					flex-direction: column;
-					margin-left: 20px;
-
-					.title {
-						font-size: 26px;
-						font-family: "microsoft yahei";
-						color: '#474645';
-						font-weight: bold;
-					}
-
-					.content {
-						margin-top: 20px;
-						height: 84px;
-						line-height: 28px;
-						font-weight: lighter;
-						font-family: "行楷";
-						width: 490px;
-						color: rgb(119, 119, 119);
-						font-size: 15px;
-						overflow: hidden;
-
-					}
-
-					.messages {
-						display: flex;
-						flex-direction: row;
-						width: 100%;
-						justify-content: space-between;
-						font-size: 16px;
-						line-height: 60px;
-						color: rgb(153, 153, 166);
-
-						.msg-left {
-							display: flex;
-							li {
-								display: flex;
-								list-style: none;
-								margin-right: 10px;
-								
-								.icon{
-									padding-top: 3px;
-									img{
-										width: 20px;
-									}
-								}
-								.word{
-								}
-							}
-						}
-
-						.msg-right {
-							display: flex;
-							li {
-								float: right;
-								list-style: none;
-								display: flex;
-								list-style: none;
-								margin-right: 10px;
-								
-								.icon{
-									img{
-										width: 20px;
-									}
-								}
-							
-							}
-						}
-					}
-				}
-
-				&:hover {
-					background-color: white;
-				}
-			}
-
-		}
-	}
+	@import "@/components/scss/article.scss"
 </style>

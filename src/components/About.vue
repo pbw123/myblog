@@ -2,6 +2,10 @@
 	<div class="home">
 		<div class="left">
 		 <Register></Register>
+		 <button @click="setStorage()">设置</button>
+		 <button @click="getStorage()">获取</button>
+		 <button @click="removeStorage()">删除</button>
+		 {{this.title}}
 		</div>
 		<div class="right">
 			<Right></Right>
@@ -32,7 +36,26 @@
 					{url:img2},
 					{url:img3},
 					{url:img4}
-				]
+				],
+				title:''
+			}
+		},
+		methods:{
+			setStorage(){
+				localStorage.setItem('data','这是一条数据')
+			},
+			getStorage(){
+				var abc=localStorage.getItem('data')!==null
+				if(abc){
+					console.log(abc)
+					this.title=localStorage.getItem('data')
+				}else{
+					this.title='标题'
+					console.log('kwkw')
+				}
+			},
+			removeStorage(){
+				localStorage.removeItem('data')
 			}
 		}
 	}

@@ -13,8 +13,14 @@
 			<div class="article-detail">
 				<div class="title">{{article.title}}</div>
 				<div class="msg">
-					<div class="author">{{article.author}}</div>
-					<div class="time">{{article.time}}</div>
+					<div class="author">
+						<div class="icon"><img src="../imgs/user.png" alt=""></div>
+						<div class="word">{{article.author}}</div>
+					</div>
+					<div class="author">
+						<div class="icon"><img src="../imgs/calendar.png" alt=""></div>
+						<div class="word">{{article.time}}</div>
+					</div>
 				</div>
 
 				<div class="content">
@@ -41,8 +47,22 @@
 						</el-popover>
 
 					</div>
-					<div class="praise info">赞{{article.praise}}</div>
-					<div class="scan info">浏览{{article.scan}}</div>
+					<div class="praise info">
+						<div class="icon">
+							<img src="../imgs/praise.png" alt="">
+						</div>
+						<div class="word">
+							点赞({{article.praise}}）
+						</div>
+					</div>
+					<div class="scan info">
+						<div class="icon" style="padding-top: 3px;">
+							<img src="../imgs/eye.png" alt="">
+						</div>
+						<div class="word">
+							浏览({{article.scan}}）
+						</div>
+					</div>
 				</div>
 
 				<div class="com">

@@ -17,13 +17,28 @@
 					</div>
 					<div class="messages">
 						<div class="msg-left">
-							<li style="color: rgb(161, 155, 8);">{{item.author}}</li>
-							<li>{{item.time}}</li>
+							<li>
+							<div class="icon"><img src="../imgs/user.png"></div>
+							<div class="word">{{item.author}}</div>
+							</li>
+							<li>
+							<div class="icon"><img src="../imgs/time.png"></div>
+							<div class="word">{{item.time}}</div>
+							</li>
 						</div>
 						<div class="msg-right">
-							<li>{{item.praise}}</li>
-							<li>浏览({{item.scan}}）</li>
-							<li>评论({{item.comment}}）</li>
+							<li>
+							<div class="icon" style="padding-top: 3px;"><img src="../imgs/praise.png"></div>
+							<div class="word">{{item.praise}}</div>
+							</li>
+							<li>
+							<div class="icon"><img src="../imgs/eye.png"></div>
+							<div class="word">{{item.scan}}</div>
+							</li>
+							<li>
+							<div class="icon" style="padding-top: 5px;"><img src="../imgs/comment.png"></div>
+							<div class="word">{{item.comment}}</div>
+							</li>
 						</div>
 					</div>
 				</div>
@@ -163,18 +178,38 @@
 						color: rgb(153, 153, 166);
 
 						.msg-left {
+							display: flex;
 							li {
-								float: left;
+								display: flex;
 								list-style: none;
 								margin-right: 10px;
+								
+								.icon{
+									padding-top: 3px;
+									img{
+										width: 20px;
+									}
+								}
+								.word{
+								}
 							}
 						}
 
 						.msg-right {
+							display: flex;
 							li {
 								float: right;
 								list-style: none;
+								display: flex;
+								list-style: none;
 								margin-right: 10px;
+								
+								.icon{
+									img{
+										width: 20px;
+									}
+								}
+							
 							}
 						}
 					}

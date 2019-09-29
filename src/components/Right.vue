@@ -4,7 +4,7 @@
 			<div class="title">关注我</div>
 			<div class="logo">
 				<div class="item" v-for="(item,index) in contacts" :key="index">
-					<div v-if="item.name==='微信'">
+					<div v-if="item.name==='公众号'">
 						<el-tooltip placement="bottom" effect="light">
 						  <div slot="content">
 							  <img src="../imgs/gzh.jpg" style="width: 300px;">
@@ -63,7 +63,10 @@
 </template>
 
 <script>
-	const wechat = require('../imgs/wechat.jpg')
+	const wechat = require('../imgs/wechat.png')
+	const qq = require('../imgs/QQ.png')
+	const weibo = require('../imgs/weibo.png')
+	const csdn = require('../imgs/csdn.png')
 	export default {
 		data() {
 			return {
@@ -89,19 +92,19 @@
 				],
 				contacts: [{
 						img: wechat,
-						name: '微信'
-					},
-					{
-						img: wechat,
-						name: '微信'
-					},
-					{
-						img: wechat,
-						name: '微信'
-					},
-					{
-						img: wechat,
 						name: '公众号'
+					},
+					{
+						img: csdn,
+						name: 'CSDN'
+					},
+					{
+						img: qq,
+						name: 'QQ'
+					},
+					{
+						img: weibo,
+						name: '微博'
 					},
 					{
 						img: wechat,

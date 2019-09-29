@@ -64,7 +64,7 @@
 						</div>
 					</div>
 				</div>
-
+				
 				<div class="com">
 					<Comment :comments="coms" :msg="msg"></Comment>
 				</div>
@@ -84,7 +84,8 @@
 	export default {
 		data() {
 			return {
-				article: this.$route.params.article,
+				isOne:1,
+				article:JSON.parse(localStorage.getItem('data')),
 				msg: {
 					count: 45,
 					kind: '评论'
@@ -125,6 +126,9 @@
 			Right,
 			Comment
 		},
+		created() {
+			this.setArticleData();
+		},
 		methods: {
 			btn1() {
 				div1.innerHTML = '<img src="/img/gzh.9664391d.jpg" style="width:350px" />';
@@ -135,6 +139,16 @@
 				div1.innerHTML = '<img src="https://static.yezismile.com/sun/images/weichat.jpg" style="width:350px" />';
 				this.btn2Active=true
 				this.btn1Active=false
+			},
+			setArticleData(){
+				
+				console.log(this.isOne+'java')
+				if(this.isOne===1){
+					console.log(this.isOne)
+					this.isOne=2
+					console.log(this.isOne+'java')
+				}
+				localStorage.setItem('data',JSON.stringify(this.$route.params.article))
 			}
 		}
 

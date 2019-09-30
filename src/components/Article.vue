@@ -17,8 +17,8 @@
 					</div>
 					<div class="messages">
 						<div class="msg-left">
-							<li>
-							<div class="icon"><img src="../imgs/user2.png"></div>
+							<li class="user-icon">
+							<div class="icon "><img src="../imgs/user2.png"></div>
 							<div class="word">{{item.author}}</div>
 							</li>
 							<li>
@@ -29,15 +29,15 @@
 						<div class="msg-right">
 							<li>
 							<div class="icon" ><img src="../imgs/praise.png"></div>
-							<div class="word">点赞({{item.praise}})</div>
+							<div class="word"><span>点赞</span>({{item.praise}})</div>
 							</li>
 							<li>
 							<div class="icon"><img src="../imgs/eye2.png"></div>
-							<div class="word">浏览({{item.scan}})</div>
+							<div class="word"><span>浏览</span>({{item.scan}})</div>
 							</li>
 							<li>
 							<div class="icon"><img src="../imgs/comment2.png"></div>
-							<div class="word">评论({{item.comment}})</div>
+							<div class="word"><span>评论</span>({{item.comment}})</div>
 							</li>
 						</div>
 					</div>
@@ -116,5 +116,10 @@
 </script>
 
 <style lang="scss" scoped="scoped">
-	@import "@/components/scss/article.scss"
+	@media screen and (min-width:500px){
+		@import "@/components/scss/article.scss"
+	}
+	@media screen and (max-width:500px){
+		@import "@/components/scss/article-mobile.scss"
+	}
 </style>

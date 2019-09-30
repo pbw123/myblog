@@ -92,5 +92,7 @@
 </script>
 
 <style lang="scss" scoped>
-	@import "@/components/scss/comment.scss"
+	@media screen and (min-width:500px){
+		@import "@/components/scss/comment.scss"
+	}
 </style>

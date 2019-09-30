@@ -4,15 +4,12 @@
 			<div class="type">
 				欢迎留言
 			</div>
-			
-
 			<Comment :comments="users" :msg="msg"></Comment>
-
 		</div>
+
 		<div class="right">
 			<Right></Right>
 		</div>
-
 	</div>
 </template>
 
@@ -20,7 +17,7 @@
 	import Right from '@/components/Right.vue'
 	import Article from '@/components/Article.vue'
 	import Comment from '@/components/Comment.vue'
-	
+
 	const img5 = require('../imgs/c5.png')
 	export default {
 		name: 'home',
@@ -31,7 +28,7 @@
 		},
 		data() {
 			return {
-   
+
 				msg: {
 					count: 456,
 					kind: '留言'
@@ -79,13 +76,14 @@
 				}
 				return isJPG && isLt2M;
 			},
-			login(){
-			}
-			
+			login() {}
+
 		}
 	}
 </script>
 
 <style lang="scss" scoped>
-	@import "@/components/scss/message.scss"
+	@media screen and (min-width:500px) {
+		@import "@/components/scss/message.scss"
+	}
 </style>

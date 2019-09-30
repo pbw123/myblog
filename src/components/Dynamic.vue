@@ -41,19 +41,24 @@
 </script>
 
 <style lang="scss" scoped>
-	
-	.home {
-		width: 80%;
-		margin: 25px auto;
-		display: flex;
-
-		.left {
-			flex: 0 0 70%;
-         margin-right: 30px;
-		}
-
-		.right {
-			width: 350px;
+	@media screen and (min-width:500px){
+		.home {
+			width: 80%;
+			margin: 25px auto;
+			display: flex;
+		
+			.left {
+				flex: 0 0 70%;
+		     margin-right: 30px;
+			}
+		
+			.right {
+				width: 350px;
+			}
 		}
 	}
+	@media screen and (max-width:500px){
+		
+	}
+	
 </style>

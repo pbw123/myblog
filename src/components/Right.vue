@@ -6,20 +6,20 @@
 				<div class="item" v-for="(item,index) in contacts" :key="index">
 					<div v-if="item.name==='公众号'">
 						<el-tooltip placement="bottom" effect="light">
-						  <div slot="content">
-							  <img src="../imgs/gzh.jpg" style="width: 300px;">
-						  </div>
-						  <div>
-							  <div class="icon">
-							  	<img :src="item.img" alt="">
-							  </div>
-							  <div class="name">
-							  	{{item.name}}
-							  </div>
-						  </div>
+							<div slot="content">
+								<img src="../imgs/gzh.jpg" style="width: 300px;">
+							</div>
+							<div>
+								<div class="icon">
+									<img :src="item.img" alt="">
+								</div>
+								<div class="name">
+									{{item.name}}
+								</div>
+							</div>
 						</el-tooltip>
 					</div>
-					
+
 					<div v-else>
 						<a href="https:\\www.baidu.com">
 							<div class="icon">
@@ -98,7 +98,7 @@
 						img: wechat,
 						name: '公众号'
 					},
-					
+
 					{
 						img: qq,
 						name: 'QQ'
@@ -159,5 +159,10 @@
 </script>
 
 <style lang="scss" scoped>
-	@import "@/components/scss/right.scss"
+	@media screen and (min-width:500px) {
+		@import "@/components/scss/right.scss"
+	}
+	@media screen and (max-width:500px) {
+		@import "@/components/scss/right-mobile.scss"
+	}
 </style>

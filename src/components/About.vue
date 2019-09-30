@@ -2,11 +2,17 @@
 	<div class="home">
 		<div class="left">
 		 <Register></Register>
-		 <button @click="setStorage()">设置</button>
-		 <button @click="getStorage()">获取</button>
-		 <button @click="removeStorage()">删除</button>
-		 {{this.title}}
+		 
+		 <div>
+		 	<van-button type="default">默认按钮</van-button>
+		 	<van-button type="primary">主要按钮</van-button>
+		 	<van-button type="info">信息按钮</van-button>
+		 	<van-button type="warning">警告按钮</van-button>
+		 	<van-button type="danger">危险按钮</van-button>
+		 </div>
+		 
 		</div>
+		
 		<div class="right">
 			<Right></Right>
 		</div>
@@ -36,27 +42,11 @@
 					{url:img2},
 					{url:img3},
 					{url:img4}
-				],
-				title:''
+				]
 			}
 		},
 		methods:{
-			setStorage(){
-				localStorage.setItem('data','这是一条数据')
-			},
-			getStorage(){
-				var abc=localStorage.getItem('data')!==null
-				if(abc){
-					console.log(abc)
-					this.title=localStorage.getItem('data')
-				}else{
-					this.title='标题'
-					console.log('kwkw')
-				}
-			},
-			removeStorage(){
-				localStorage.removeItem('data')
-			}
+			
 		}
 	}
 </script>

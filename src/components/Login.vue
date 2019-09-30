@@ -70,5 +70,7 @@
 </script>
 
 <style lang="scss" scoped>
-	
+	@media screen and (min-width:500px){
+		
+	}
 </style>

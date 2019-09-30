@@ -59,32 +59,11 @@
 </script>
 
 <style lang="scss" scoped>
-	.el-carousel__item h3 {
-		color: #475669;
-		font-size: 18px;
-		opacity: 0.75;
-		line-height: 300px;
-		margin: 0;
+	@media screen and (min-width:500px){
+		@import "@/components/scss/home.scss"
 	}
-
-
-	.home {
-		width: 80%;
-		margin: 25px auto;
-		display: flex;
-
-		.left {
-			flex: 0 0 70%;
-			margin-right: 30px;
-			
-			.carousel{
-				margin-bottom: 50px;
-			}
-		}
-
-		.right {
-			width: 350px;
-		}
+	
+	@media screen and (max-width:500px){
+		@import "@/components/scss/home-mobile.scss"
 	}
-
 </style>

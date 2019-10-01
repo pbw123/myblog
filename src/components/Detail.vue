@@ -13,7 +13,7 @@
 			<div class="article-detail">
 				<div class="title">{{article.title}}</div>
 				<div class="msg">
-					<div class="author">
+					<div class="author author2">
 						<div class="icon"><img src="../imgs/user2.png" alt=""></div>
 						<div class="word">{{article.author}}</div>
 					</div>

@@ -3,15 +3,15 @@ $rgb:rgb(247, 120, 37) !global
 	height: 40px;
 	line-height: 40px;
 	padding: 5px;
-	font-size: 16px;
+	font-size: 20px;
 	font-weight: bold;
 	border-bottom: 5px solid $rgb;
 }
 .article-item{
 	margin-bottom: 50px;
-	border-bottom: 1.5px solid gray;
+	border-bottom: 1.5px dashed gray;
 	.left{
-		width: 300px;
+		width: 95%;
 		height: 200px;
 		margin: 10px auto;
 		img{
@@ -30,23 +30,24 @@ $rgb:rgb(247, 120, 37) !global
 			text-align: center;
 		}
 		.content{
-			padding-left: 10px;
-			padding-right: 10px;
+			width: 95%;
+			margin: 0 auto;
 			margin-top: 10px;
 		}
 		
 		.messages{
 			padding-bottom: 20px;
 			display: flex;
+			margin: 0 auto;
 			margin-top: 20px;
 			justify-content: space-between;
+			width: 95%;
 			li{
 				list-style: none;
 				display: flex;
 			}
 			.msg-left{
 				display: flex;
-				padding-left: 10px;
 				.user-icon{
 					display: none;
 				}
@@ -61,7 +62,6 @@ $rgb:rgb(247, 120, 37) !global
 			
 			.msg-right{
 				display: flex;
-				padding-right: 10px;
 				span{
 					display: none;
 				}

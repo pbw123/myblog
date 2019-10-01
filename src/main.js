@@ -11,7 +11,11 @@ import { Field } from 'vant';
 import { Icon } from 'vant';
 import { Cell, CellGroup } from 'vant';
 import { Toast } from 'vant';
+import { PullRefresh } from 'vant';
+import { Swipe, SwipeItem } from 'vant';
 
+Vue.use(Swipe).use(SwipeItem);
+Vue.use(PullRefresh);
 Vue.use(Toast);
 Vue.use(Cell).use(CellGroup);
 Vue.use(Icon);

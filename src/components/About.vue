@@ -1,6 +1,9 @@
 <template>
 
 	<div class="home">
+		<van-pull-refresh v-model="isLoading" @refresh="onRefresh">
+		  <p>刷新次数: {{ count }}</p>
+		</van-pull-refresh>
 		<!-- <div class="left">
 		 <Register></Register>
 		 
@@ -38,6 +41,9 @@
 		},
 		data() {
 			return {
+				  count: 0,
+				  isLoading: false,
+					  
 				imgs:[
 					{url:img1},
 					{url:img2},
@@ -47,7 +53,13 @@
 			}
 		},
 		methods:{
-			
+			onRefresh() {
+			  setTimeout(() => {
+			    this.$toast('刷新成功');
+			    this.isLoading = false;
+			    this.count++;
+			  }, 500);
+			}
 		}
 	}
 </script>
@@ -68,5 +80,6 @@
 		.right {
 			width: 350px;
 		}
+		 
 	}
 </style>

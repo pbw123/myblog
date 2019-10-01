@@ -1,5 +1,6 @@
 <template>
 	<div id="app">
+		<van-pull-refresh v-model="isLoading" @refresh="onRefresh">
 		<header>
 		</header>
 		<div class="top-nav">
@@ -10,10 +11,10 @@
 				<img :src="search" alt="">
 			</div>
 		</div>
+
 		<van-popup v-model="show" position="left" class="nav-mobile">
 		<div class="nav-mobile">
 			<div class="menu">
-				
 				<div class="" @click="goHome()">
 					<router-link to="" class="item">首页</router-link>
 				</div>
@@ -46,18 +47,24 @@
 			</div>
 		</div>
 		<router-view></router-view>
+		</van-pull-refresh>
+		<div class="icp" style="height: 40px;background-color: black;text-align: center;opacity: 0.9;color: white;">
+			网站备案号
+		</div>
 	</div>
 </template>
 
 <script>
-	const directory = require('./imgs/directory.png')
-	const search = require('./imgs/search.png')
+	const directory = require('./imgs/directory4.png')
+	const search = require('./imgs/search2.png')
 	export default {
 		data() {
 			return {
 				show: false,
 				directory:directory,
-				search:search
+				search:search,
+				count: 0,
+				isLoading: false
 			}
 		},
 		methods: {
@@ -67,7 +74,7 @@
 			
 			goDynamic() {
 				this.$router.push({
-					path:'/detail'
+					path:'/dynamic'
 				});
 				this.show = false;
 			},
@@ -88,6 +95,16 @@
 					path:'/about'
 				})
 				this.show = false;
+			},
+			onRefresh() {
+			  setTimeout(() => {
+			    this.$toast('刷新成功');
+			    this.isLoading = false;
+			    this.count++;
+			  }, 500);
+			},
+			onSearch(){
+				
 			}
 		}
 	}

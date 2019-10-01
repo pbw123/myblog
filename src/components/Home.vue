@@ -9,6 +9,19 @@
 				</el-carousel>
 			</div>
 
+			<div class="swipe">
+				<van-swipe :autoplay="3000" indicator-color="white">
+					<div v-for="item in imgs" :key="item.url">
+						<van-swipe-item>
+							<div class="swipe-img">
+								<img :src="item.url"  />
+							</div>
+						</van-swipe-item>
+					</div>
+
+				</van-swipe>
+			</div>
+
 			<div class="article">
 				<Article type="最新文章"></Article>
 			</div>
@@ -17,6 +30,8 @@
 		<div class="right">
 			<Right></Right>
 		</div>
+		
+		
 
 	</div>
 </template>
@@ -37,8 +52,8 @@
 		data() {
 			return {
 				srcList: [
-				  'http://img3.imgtn.bdimg.com/it/u=2579838268,1716293199&fm=26&gp=0.jpg',
-				  'https://c-ssl.duitang.com/uploads/item/201701/11/20170111181351_U2Z8C.thumb.700_0.jpeg'
+					'http://img3.imgtn.bdimg.com/it/u=2579838268,1716293199&fm=26&gp=0.jpg',
+					'https://c-ssl.duitang.com/uploads/item/201701/11/20170111181351_U2Z8C.thumb.700_0.jpeg'
 				],
 				imgs: [{
 						url: img1
@@ -59,11 +74,11 @@
 </script>
 
 <style lang="scss" scoped>
-	@media screen and (min-width:500px){
+	@media screen and (min-width:500px) {
 		@import "@/components/scss/home.scss"
 	}
-	
-	@media screen and (max-width:500px){
+
+	@media screen and (max-width:500px) {
 		@import "@/components/scss/home-mobile.scss"
 	}
 </style>

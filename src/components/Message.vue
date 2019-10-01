@@ -4,7 +4,9 @@
 			<div class="type">
 				欢迎留言
 			</div>
-			<Comment :comments="users" :msg="msg"></Comment>
+			<div class="com">
+				<Comment :comments="users" :msg="msg"></Comment>
+			</div>
 		</div>
 
 		<div class="right">
@@ -85,6 +87,20 @@
 <style lang="scss" scoped>
 	@media screen and (min-width:500px) {
 		@import "@/components/scss/message.scss"
+	}
+	@media screen and (max-width:500px) {
+		
+		.type {
+			font-size: 26px;
+			font-family: "microsoft yahei";
+			color: '#474645';
+			font-weight: bold;
+			border-bottom: 5px solid rgb(219, 109, 76);
+		}
+		.com{
+			margin-top: -60px;
+		}
+		
 	}
 
 </style>

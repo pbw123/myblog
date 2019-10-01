@@ -59,6 +59,9 @@
 	}
 	@media screen and (max-width:500px){
 		
+		.right {
+			margin-top: -20px;
+		}
 	}
 	
 </style>

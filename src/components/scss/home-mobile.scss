@@ -1,3 +1,17 @@
 .carousel{
 	display: none;
 }
+.swipe{
+	width: 100%;
+	
+	.swipe-img{
+		max-width: 500px;
+		margin: 0 auto;
+		img{
+			width: 100%;
+		}
+	}
+}
+.right{
+	margin-top: -20px;
+}

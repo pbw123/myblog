@@ -1,7 +1,42 @@
 <template>
 	<div>
-		<el-form :model="ruleForm" status-icon :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
-			<el-form-item label="头像">
+		<div class="register-pc">
+			<el-form :model="ruleForm" status-icon :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
+				<el-form-item label="头像">
+					<div class="user-msg">
+						<el-upload class="" action="https://jsonplaceholder.typicode.com/posts/" :show-file-list="false" :on-success="handleAvatarSuccess"
+						 :before-upload="beforeAvatarUpload">
+							<img v-if="imageUrl" :src="imageUrl" class="avatar">
+							<div v-else class="avatar-uploader">头像</div>
+						</el-upload>
+					</div>
+				</el-form-item>
+
+				<el-form-item label="昵称" prop="name">
+					<el-input v-model="ruleForm.name"></el-input>
+				</el-form-item>
+				<div class="phone">
+					<el-form-item label="手机号" prop="phone" class="phone-input">
+						<el-input v-model="ruleForm.phone" autocomplete="off"></el-input>
+					</el-form-item>
+					<el-button class="send" size="small">发送验证码</el-button>
+				</div>
+
+				<el-form-item label="密码" prop="pass">
+					<el-input type="password" v-model="ruleForm.pass" autocomplete="off"></el-input>
+				</el-form-item>
+				<el-form-item label="确认密码" prop="checkPass">
+					<el-input type="password" v-model="ruleForm.checkPass" autocomplete="off"></el-input>
+				</el-form-item>
+
+			</el-form>
+		</div>
+
+		<div class="register-mobile">
+
+
+
+			<van-cell-group>
 				<div class="user-msg">
 					<el-upload class="" action="https://jsonplaceholder.typicode.com/posts/" :show-file-list="false" :on-success="handleAvatarSuccess"
 					 :before-upload="beforeAvatarUpload">
@@ -9,30 +44,15 @@
 						<div v-else class="avatar-uploader">头像</div>
 					</el-upload>
 				</div>
-			</el-form-item>
+				<van-field v-model="ruleForm.name" required label="手机号" placeholder="请输入手机号">
+					<van-button slot="button" size="small" type="primary">发送验证码</van-button>
+				</van-field>
 
-			<el-form-item label="昵称" prop="name">
-				<el-input v-model="ruleForm.name"></el-input>
-			</el-form-item>
-			<div class="phone">
-				<el-form-item label="手机号" prop="phone" class="phone-input">
-					<el-input v-model="ruleForm.phone" autocomplete="off"></el-input>
-				</el-form-item>
-				<el-button class="send" size="small">发送验证码</el-button>
-			</div>
+				<van-field v-model="ruleForm.pass" type="password" label="密码" placeholder="请输入密码" required right-icon="question-o"
+				 @click-right-icon="$toast('密码长度为6~10位')" />
 
-			<el-form-item label="密码" prop="pass">
-				<el-input type="password" v-model="ruleForm.pass" autocomplete="off"></el-input>
-			</el-form-item>
-			<el-form-item label="确认密码" prop="checkPass">
-				<el-input type="password" v-model="ruleForm.checkPass" autocomplete="off"></el-input>
-			</el-form-item>
-
-			<!-- <el-form-item>
-		    <el-button type="primary" @click="submitForm('ruleForm')">提交</el-button>
-		    <el-button @click="resetForm('ruleForm')">重置</el-button>
-		  </el-form-item> -->
-		</el-form>
+			</van-cell-group>
+		</div>
 	</div>
 </template>
 
@@ -66,7 +86,8 @@
 					pass: '',
 					checkPass: '',
 					name: '',
-					phone: ''
+					phone: '',
+					pass: ''
 
 				},
 				imageUrl: '',
@@ -143,5 +164,9 @@
 <style lang="scss" scoped>
 	@media screen and (min-width:500px) {
 		@import "@/components/scss/register.scss"
+	}
+
+	@media screen and (max-width:500px) {
+		@import "@/components/scss/register-mobile.scss"
 	}
 </style>

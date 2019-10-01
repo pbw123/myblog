@@ -21,7 +21,7 @@
 					</div>
 
 					<div v-else>
-						<a href="https:\\www.baidu.com">
+						<a :href="item.url">
 							<div class="icon">
 								<img :src="item.img" alt="">
 							</div>
@@ -96,36 +96,44 @@
 				],
 				contacts: [{
 						img: wechat,
-						name: '公众号'
+						name: '公众号',
+						url:'#'
 					},
 
 					{
 						img: qq,
-						name: 'QQ'
+						name: 'QQ',
+						url:'tencent://Message/?Uin=2635225112&amp;websiteName=q-zone.qq.com&amp;Menu=yes'
 					},
 					{
 						img: weibo,
-						name: '微博'
+						name: '微博',
+						url:'#'
 					},
 					{
 						img: csdn,
-						name: 'CSDN'
+						name: 'CSDN',
+						url:'#'
 					},
 					{
 						img: jianshu,
-						name: '简书'
+						name: '简书',
+						url:'#'
 					},
 					{
 						img: juejin,
-						name: '掘金'
+						name: '掘金',
+						url:'#'
 					},
 					{
 						img: github,
-						name: 'github'
+						name: 'github',
+						url:'#'
 					},
 					{
 						img: gitee,
-						name: '码云'
+						name: '码云',
+						url:'#'
 					}
 				],
 				links: [{

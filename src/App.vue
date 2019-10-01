@@ -14,17 +14,17 @@
 		<div class="nav-mobile">
 			<div class="menu">
 				
-				<div class="">
-					<router-link to="/home" class="item">首页</router-link>
+				<div class="" @click="goHome()">
+					<router-link to="" class="item">首页</router-link>
 				</div>
-				<div class="">
-					<router-link to="/dynamic" class="item">动态</router-link>
+				<div class="" @click="goDynamic()">
+					<router-link to="" class="item">动态</router-link>
 				</div>
-				<div class="">
-					<router-link to="/message" class="item">留言</router-link>
+				<div class="" @click="goMessage()">
+					<router-link to="" class="item">留言</router-link>
 				</div>
-				<div class="">
-					<router-link to="/about" class="item">关于</router-link>
+				<div class="" @click="goAbout()">
+					<router-link to="" class="item">关于</router-link>
 				</div>
 			</div>
 		</div>
@@ -63,7 +63,32 @@
 		methods: {
 				showPopup() {
 					this.show = true;
-				}
+				},
+			
+			goDynamic() {
+				this.$router.push({
+					path:'/detail'
+				});
+				this.show = false;
+			},
+			goHome() {
+				this.$router.push({
+					path:'/home'
+				});
+				this.show = false;
+			},
+			goMessage() {
+				this.$router.push({
+					path:'/message'
+				});
+				this.show = false;
+			},
+			goAbout() {
+				this.$router.push({
+					path:'/about'
+				})
+				this.show = false;
+			}
 		}
 	}
 </script>

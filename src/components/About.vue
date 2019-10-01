@@ -1,6 +1,7 @@
 <template>
+
 	<div class="home">
-		<div class="left">
+		<!-- <div class="left">
 		 <Register></Register>
 		 
 		 <div>
@@ -11,13 +12,13 @@
 		 	<van-button type="danger">危险按钮</van-button>
 		 </div>
 		 
-		</div>
+		</div> -->
 		
-		<div class="right">
+		<!-- <div class="right">
 			<Right></Right>
-		</div>
-		
+		</div> -->
 	</div>
+	
 </template>
 
 <script>

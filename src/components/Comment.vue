@@ -1,10 +1,38 @@
 <template>
 	<div>
 		<div class="comment">
-			<div class="user-msg" @click="dialogFormVisible = true">
-				<img v-if="" :src="imageUrl" class="avatar">
+			<div class="header">
+				<div class="user-msg" @click="dialogFormVisible = true">
+					<img  :src="imageUrl" class="avatar">
+				</div>
 			</div>
-
+			<div class="header-moblie">
+				<div class="user-msg" @click="show = true">
+					<img  :src="imageUrl" class="avatar">
+				</div>
+			</div>
+			<van-action-sheet
+			  v-model="show"
+			  :actions="actions"
+			  @select="onSelect"
+			    cancel-text="取消"
+			/>
+			<van-dialog
+			  v-model="isLogin"
+			  title="登录"
+			  show-cancel-button
+			>
+				<Login ></Login>
+			</van-dialog>
+			
+			<van-dialog
+			  v-model="isRegister"
+			  title="注册"
+			  show-cancel-button
+			>
+			<Register></Register>
+			</van-dialog>
+			
 			<el-dialog title="" :visible.sync="dialogFormVisible">
 
 				<div class="login-bar">
@@ -41,14 +69,17 @@
 				<div class="item-left">
 					<img :src="item.img" />
 				</div>
-				<div class="item-center">
-					<div class="user-name">{{item.name}}</div>
-					<div class="item content">{{item.content}}</div>
-				</div>
 				<div class="item-right">
-					<div class="time">{{item.time}}</div>
-					<div class="reply">回复</div>
+					<div class="right-top">
+						<div class="user-name">{{item.name}}</div>
+						<div class="time">{{item.time}}</div>
+					</div>
+					<div class="right-content">{{item.content}}</div>
+					<div class="right-bottom">
+						<div class="reply">回复</div>
+					</div>
 				</div>
+				
 			</div>
 		</div>
 	</div>
@@ -64,7 +95,9 @@
 			comments: Array,
 			msg: Object
 		},
-
+  mounted() {
+   
+  },
 		data() {
 			return {
 				dialogFormVisible: false,
@@ -76,7 +109,14 @@
 				imageUrl: img5,
 				textarea:'',
 				maxLength:150,
-				len:150
+				len:150,
+				show:false,
+				isLogin:false,
+				isRegister:false,
+				actions: [
+				        { name: '登录' },
+				        { name: '注册' }
+				      ]
 			}
 		},
 		watch:{
@@ -87,6 +127,28 @@
 		components: {
 			Register,
 			Login
+		},
+		methods:{
+			  onSelect(item) {
+			      this.show = false;
+			      if(item.name==='登录'){
+					  this.isLogin=true;
+				  }else if(item.name==='注册')
+				  {
+					this.isRegister = true  
+				  }
+			    },
+				login(){
+			
+			Dialog.confirm({
+			  title: '标题',
+			  message: '弹窗内容'
+			}).then(() => {
+			  // on confirm
+			}).catch(() => {
+			  // on cancel
+			});
+		}
 		}
 	}
 </script>
@@ -94,5 +156,8 @@
 <style lang="scss" scoped>
 	@media screen and (min-width:500px){
 		@import "@/components/scss/comment.scss"
+	}
+	@media screen and (max-width:500px) {
+		@import "@/components/scss/comment-mobile.scss"
 	}
 </style>

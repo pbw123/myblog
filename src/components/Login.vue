@@ -1,16 +1,39 @@
 <template>
 	<div>
 		<el-form :model="ruleForm" status-icon :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
-			<div class="phone">
-				<el-form-item label="手机号/昵称" prop="name" class="phone-input">
-				  <el-input  v-model="ruleForm.phone" autocomplete="off"></el-input>
-				</el-form-item>
+			<div class="input-pc">
+				<div class="phone">
+					<el-form-item label="手机号/昵称" prop="name" class="phone-input">
+					  <el-input  v-model="ruleForm.phone" autocomplete="off"></el-input>
+					</el-form-item>
+					<el-form-item label="密码" prop="pass">
+					  <el-input type="password" v-model="ruleForm.pass" autocomplete="off"></el-input>
+					</el-form-item>
+				</div>
 			</div>
-			  
-		  <el-form-item label="密码" prop="pass">
-		    <el-input type="password" v-model="ruleForm.pass" autocomplete="off"></el-input>
-		  </el-form-item>
 		</el-form>
+		
+		<van-cell-group>
+			<div class="input-mobile">
+				<div class="phone">
+					  <van-field
+					    v-model="ruleForm.name"
+					    label="用户名"
+					    placeholder="请输入用户名/手机号"
+						required
+						
+					  />
+					  <van-field
+					  type="password"
+					    v-model="ruleForm.pass"
+					    label="密码"
+					    placeholder="请输入密码"
+						required
+					  />
+				</div>
+			</div>
+		</van-cell-group>
+
 	</div>
 </template>
 
@@ -71,6 +94,14 @@
 
 <style lang="scss" scoped>
 	@media screen and (min-width:500px){
+		.input-mobile{
+			display: none;
+		}
+	}
+	@media screen and (max-width:500px){
+		.input-pc{
+			display: none;
+		}
 		
 	}
 </style>

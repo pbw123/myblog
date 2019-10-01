@@ -1,11 +1,17 @@
 $rgbcolor:rgb(231, 72, 81) !global
+$pad:5px !global
+
+.header{
+	display: none;
+}
 	 .comment {
 		display: flex;
 		flex-direction: column;
-		
-           .header-moblie{
-			   display: none;
-		   }
+		padding-left: $pad;
+		padding-right: $pad;
+		margin-top: 80px;
+
+
 		.user-msg {
 			display: flex;
 			align-items: center;
@@ -24,17 +30,16 @@ $rgbcolor:rgb(231, 72, 81) !global
 
 		&-content {
 			border: 1.5px solid $rgbcolor;
-			height: 140px;
-			width: 100%;
+			height: 100px;
 			border-radius: 10px;
 
 			textarea {
 				border: 1.5px solid $rgbcolor;
 				margin: 20px auto;
-				width: 100%;
-				min-width: 800px;
+				width: 90%;
+				max-width: 500px;
 				padding-left: 20px;
-				height: 100px;
+				height: 60%;
 				outline: none;
 				border: none;
 				background-color: rgb(255, 251, 240);
@@ -42,6 +47,7 @@ $rgbcolor:rgb(231, 72, 81) !global
 			}
 			.len{
 				color: $rgbcolor;
+				font-size: 16px;
 			}
 		}
 
@@ -63,10 +69,13 @@ $rgbcolor:rgb(231, 72, 81) !global
 		}
 	}
 
+
 	.comment-bar {
 		margin-top: 40px;
 		display: flex;
 		justify-content: space-between;
+		padding-left: $pad;
+		padding-right: $pad;
 
 		.bar-left {
 			width: 80px;
@@ -82,6 +91,7 @@ $rgbcolor:rgb(231, 72, 81) !global
 		.bar-right {
 			border-bottom: 1.5px solid $rgbcolor;
 			width: 100%;
+			padding-right: $pad;
 			text-align: right;
 			color: $rgbcolor;
 
@@ -107,6 +117,7 @@ $rgbcolor:rgb(231, 72, 81) !global
 			margin-top: 40px;
 			border-bottom: 1.5px dashed gainsboro;
 			padding-bottom: 20px;
+			padding-right: $pad;
 
 			.item-left {
 				

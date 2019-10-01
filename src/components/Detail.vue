@@ -29,7 +29,7 @@
 
 				<div class="money">
 					<div class="reward">
-						<el-popover placement="left" width="370" trigger="click">
+						<el-popover placement="top" width="320" trigger="click">
 							<div class="model">
 								<div class="btn" style="display: flex;justify-content: center;">
 									<div style="line-height: 50px;text-align: center;" id="btn1" @click="btn1" :class="[ btn1Active ? active : defaultClass]">
@@ -40,7 +40,7 @@
 									</div>
 								</div>
 								<div id="div1">
-									<img src="../imgs/gzh.jpg" style="width: 350px;" />
+									<img src="../imgs/gzh.jpg" style="width: 300px;" />
 								</div>
 							</div>
 							<el-button slot="reference" type="danger" round class="word" size="medium">打赏</el-button>
@@ -94,13 +94,13 @@
 				coms: [{
 						img: img5,
 						name: 'Joker',
-						content: '这是文章评论内容',
+						content: '这是文章评论内容这是文章评论内容这是文章评论内容这是文章这是文章评论内容这是文章评论内容这是文章评论内容这是文章评论内容这是文章评论内容这是文章评论内容这是文章评论内容评论内容这是文章评论内容',
 						time: '2019-9-26 21:16'
 					},
 					{
 						img: img5,
 						name: 'Joker',
-						content: '这是文章评论内容',
+						content: '这是文章评论内容这是文章评论内容这是文章评论内容这是文章评论内容',
 						time: '2019-9-26 21:16'
 					},
 					{
@@ -132,12 +132,12 @@
 		},
 		methods: {
 			btn1() {
-				div1.innerHTML = '<img src="/img/gzh.9664391d.jpg" style="width:350px" />';
+				div1.innerHTML = '<img src="/img/gzh.9664391d.jpg" style="width:300px" />';
 				this.btn1Active = true
 				this.btn2Active = false
 			},
 			btn2() {
-				div1.innerHTML = '<img src="https://static.yezismile.com/sun/images/weichat.jpg" style="width:350px" />';
+				div1.innerHTML = '<img src="https://static.yezismile.com/sun/images/weichat.jpg" style="width:300px" />';
 				this.btn2Active = true
 				this.btn1Active = false
 			},
@@ -160,5 +160,10 @@
 </script>
 
 <style lang="scss" scoped>
-	@import "@/components/scss/detail.scss"
+	@media screen and (min-width:500px){
+		@import "@/components/scss/detail.scss"
+	}
+	@media screen and (max-width:500px) {
+	@import "@/components/scss/detail-mobile.scss"	
+	}
 </style>

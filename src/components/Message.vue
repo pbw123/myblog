@@ -86,4 +86,5 @@
 	@media screen and (min-width:500px) {
 		@import "@/components/scss/message.scss"
 	}
+
 </style>

@@ -23,7 +23,7 @@
 			</div>
 
 			<div class="article">
-				<Article type="最新文章"></Article>
+				<Article type="最新文章" :isNight="$route.query.isNight"></Article>
 			</div>
 
 		</div>

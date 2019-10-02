@@ -1,25 +1,16 @@
 <template>
 
 	<div class="home">
-		<van-pull-refresh v-model="isLoading" @refresh="onRefresh">
+		<!-- <van-pull-refresh v-model="isLoading" @refresh="onRefresh">
 		  <p>刷新次数: {{ count }}</p>
-		</van-pull-refresh>
-		<!-- <div class="left">
-		 <Register></Register>
-		 
-		 <div>
-		 	<van-button type="default">默认按钮</van-button>
-		 	<van-button type="primary">主要按钮</van-button>
-		 	<van-button type="info">信息按钮</van-button>
-		 	<van-button type="warning">警告按钮</van-button>
-		 	<van-button type="danger">危险按钮</van-button>
-		 </div>
-		 
-		</div> -->
+		</van-pull-refresh> -->
+		<div class="left">
+		 <!-- <Register></Register> -->
+		</div>
 		
-		<!-- <div class="right">
+		<div class="right">
 			<Right></Right>
-		</div> -->
+		</div>
 	</div>
 	
 </template>

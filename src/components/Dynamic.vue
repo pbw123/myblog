@@ -3,7 +3,7 @@
 		<div class="left">
 		 
 		 <div class="article">
-			 <Article type="所有文章"></Article>
+			 <Article type="所有文章" :isNight="$route.query.isNight"></Article>
 		 </div>
 			  
 		</div>

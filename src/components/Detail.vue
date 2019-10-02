@@ -4,7 +4,7 @@
 			<div class="type">
 				<span class="tip">您现在所在的位置是：</span>
 				<span class="place">
-					<router-link to="/home" style="text-decoration: none;color: rgb(0, 0, 77);">首页</router-link>
+					<span @click="goHome()">首页</span>
 					<span>></span>
 					<span>文章详情</span>
 					<span>></span>
@@ -14,11 +14,13 @@
 				<div class="title">{{article.title}}</div>
 				<div class="msg">
 					<div class="author author2">
-						<div class="icon"><img src="../imgs/user2.png" alt=""></div>
+						<div v-show="!isNight" class="icon"><img src="../imgs/user2.png" alt=""></div>
+						<div v-show="isNight" class="icon"><img src="../imgs/user.png" alt=""></div>
 						<div class="word">{{article.author}}</div>
 					</div>
 					<div class="author">
-						<div class="icon"><img src="../imgs/calendar.png" alt=""></div>
+						<div v-show="!isNight" class="icon"><img src="../imgs/calendar.png" alt=""></div>
+						<div v-show="isNight" class="icon"><img src="../imgs/rl.png" alt=""></div>
 						<div class="word">{{article.time}}</div>
 					</div>
 				</div>
@@ -49,7 +51,8 @@
 					</div>
 					<div class="praise info">
 						<div class="icon">
-							<img src="../imgs/praise.png" alt="">
+							<img v-show="!isNight" src="../imgs/praise.png" alt="">
+							<img v-show="isNight" src="../imgs/zan.png" alt="">
 						</div>
 						<div class="word">
 							点赞({{article.praise}}）
@@ -57,16 +60,16 @@
 					</div>
 					<div class="scan info">
 						<div class="icon" style="padding-top: 3px;">
-							<img src="../imgs/eye2.png" alt="">
+							<img v-show="!isNight" src="../imgs/eye2.png" alt="">
+							<img v-show="isNight" src="../imgs/eye.png" alt="">
 						</div>
 						<div class="word">
 							浏览({{article.scan}}）
 						</div>
 					</div>
 				</div>
-
 				<div class="com">
-					<Comment :comments="coms" :msg="msg"></Comment>
+					<Comment :comments="coms" :msg="msg" :isNight="$route.params.isNight"></Comment>
 				</div>
 			</div>
 		</div>
@@ -87,6 +90,7 @@
 				isOne: 1,
 				// article:JSON.parse(localStorage.getItem('data')),
 				article: {},
+				isNight:false,
 				msg: {
 					count: 45,
 					kind: '评论'
@@ -151,8 +155,12 @@
 				} else {
 					console.log(is+'第一次路由进来走的else是这里')
 					this.article = this.$route.params.article
+					this.isNight=this.$route.params.isNight
 					localStorage.setItem('data',JSON.stringify(this.$route.params.article))
 				}
+			},
+			goHome(){
+				this.$router.push('/home')
 			}
 		}
 

@@ -48,7 +48,7 @@
 			</el-dialog>
 
 			<div class="comment-content">
-				<textarea class="" placeholder="既然来了,就说几句吧" v-model="textarea" :maxlength="maxLength"></textarea>
+				<textarea :class="[isNight?night:'']" placeholder="既然来了,就说几句吧" v-model="textarea" :maxlength="maxLength"></textarea>
 				<div class="len">您还可以输入{{len}}个字</div>
 			</div>
 			<div class="comment-commit">
@@ -93,7 +93,8 @@
 	export default {
 		props: {
 			comments: Array,
-			msg: Object
+			msg: Object,
+			isNight:Boolean
 		},
   mounted() {
    
@@ -113,6 +114,7 @@
 				show:false,
 				isLogin:false,
 				isRegister:false,
+				night:'night',
 				actions: [
 				        { name: '登录' },
 				        { name: '注册' }

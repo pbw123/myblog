@@ -51,7 +51,8 @@
 	const img1 = require('../imgs/c5.png')
 	export default {
 		props: {
-			type: String
+			type: String,
+			isNight:Boolean
 		},
 		data() {
 			return {
@@ -107,7 +108,8 @@
 				this.$router.push({
 					name:'/Detail',
 					params:{
-						article:val
+						article:val,
+						isNight:this.isNight
 					}
 				})
 			}

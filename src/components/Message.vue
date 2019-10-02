@@ -5,7 +5,7 @@
 				欢迎留言
 			</div>
 			<div class="com">
-				<Comment :comments="users" :msg="msg"></Comment>
+				<Comment :comments="users" :msg="msg" :isNight="$route.query.isNight"></Comment>
 			</div>
 		</div>
 
@@ -30,7 +30,7 @@
 		},
 		data() {
 			return {
-
+                // isNight:$route.query.isNight,
 				msg: {
 					count: 456,
 					kind: '留言'

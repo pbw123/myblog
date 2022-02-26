@@ -83,6 +83,7 @@
 <script>
 	import Right from '@/components/Right.vue'
 	import Comment from '@/components/Comment.vue'
+  import {getAllMessage} from "../api/requestApi";
 	const img5 = require('../imgs/c5.png')
 	export default {
 		data() {
@@ -134,7 +135,15 @@
 		created() {
 			this.setArticleData();
 		},
-		methods: {
+    mounted() {
+		  this.getAllMessage()
+    },
+    methods: {
+      getAllMessage() {
+        getAllMessage().then(res => {
+          this.coms=res.data
+        });
+      },
 			btn1() {
 				div1.innerHTML = '<img src="/img/gzh.9664391d.jpg" style="width:300px" />';
 				this.btn1Active = true

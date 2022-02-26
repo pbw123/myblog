@@ -1,10 +1,10 @@
 <template>
 	<div>
-		<el-form :model="ruleForm" status-icon :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
+		<el-form :model="ruleForm" status-icon  ref="ruleForm" label-width="100px" class="demo-ruleForm">
 			<div class="input-pc">
 				<div class="phone">
 					<el-form-item label="手机号/昵称" prop="name" class="phone-input">
-					  <el-input  v-model="ruleForm.phone" autocomplete="off"></el-input>
+					  <el-input  v-model="ruleForm.name" autocomplete="off"></el-input>
 					</el-form-item>
 					<el-form-item label="密码" prop="pass">
 					  <el-input type="password" v-model="ruleForm.pass" autocomplete="off"></el-input>
@@ -13,32 +13,14 @@
 			</div>
 		</el-form>
 		
-		<van-cell-group>
-			<div class="input-mobile">
-				<div class="phone">
-					  <van-field
-					    v-model="ruleForm.name"
-					    label="用户名"
-					    placeholder="请输入用户名/手机号"
-						required
-						
-					  />
-					  <van-field
-					  type="password"
-					    v-model="ruleForm.pass"
-					    label="密码"
-					    placeholder="请输入密码"
-						required
-					  />
-				</div>
-			</div>
-		</van-cell-group>
 
 	</div>
 </template>
 
 <script>
-	 export default {
+	 import {login} from "../api/requestApi";
+
+   export default {
 	    data() {
 		 
 	      var validatePass = (rule, value, callback) => {
@@ -75,6 +57,16 @@
 	      };
 	    },
 	    methods: {
+        login() {
+          login({
+            userPass:this.ruleForm.pass,
+            phoneNumber:this.ruleForm.name
+          }).then(res => {
+            if (res.code == 200) {
+              this.$message.success("登录成功")
+            }
+          });
+        },
 	      submitForm(formName) {
 	        this.$refs[formName].validate((valid) => {
 	          if (valid) {

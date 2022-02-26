@@ -11,39 +11,18 @@
 					<img  :src="imageUrl" class="avatar">
 				</div>
 			</div>
-			<van-action-sheet
-			  v-model="show"
-			  :actions="actions"
-			  @select="onSelect"
-			    cancel-text="取消"
-			/>
-			<van-dialog
-			  v-model="isLogin"
-			  title="登录"
-			  show-cancel-button
-			>
-				<Login ></Login>
-			</van-dialog>
-			
-			<van-dialog
-			  v-model="isRegister"
-			  title="注册"
-			  show-cancel-button
-			>
-			<Register></Register>
-			</van-dialog>
-			
+
 			<el-dialog title="" :visible.sync="dialogFormVisible">
 
 				<div class="login-bar">
 					<div :class="[ isVisible===false ? active : defaultClass]" @click="isVisible=false" style="line-height: 50px;text-align: center;">登录</div>
 					<div :class="[isVisible?active:defaultClass]" @click="isVisible=true" style="line-height: 50px;text-align: center;">注册</div>
 				</div>
-				<Login :class="[isVisible?look:'']" style="height: 333.5px;"></Login>
+				<Login :class="[isVisible?look:'']" style="height: 333.5px;" ref="login"></Login>
 				<Register :class="[isVisible?'':look]"></Register>
 				<div slot="footer" class="dialog-footer">
 					<el-button @click="dialogFormVisible = false">取 消</el-button>
-					<el-button type="primary" @click="dialogFormVisible = false">确 定</el-button>
+					<el-button type="primary" @click="confirm()">确 定</el-button>
 				</div>
 			</el-dialog>
 
@@ -56,10 +35,10 @@
 			</div>
 		</div>
 		<div class="comment-bar">
-			<div class="bar-left">{{msg.kind}}</div>
+			<div class="bar-left">留言</div>
 			<div class="bar-right">
-				<span class="count">{{msg.count}}</span>
-				<span class="tiao">条{{msg.kind}}</span>
+				<span class="count">{{comments.length}}</span>
+				<span class="tiao">条留言</span>
 			</div>
 		</div>
 
@@ -87,21 +66,23 @@
 </template>
 
 <script>
-	const img5 = require('../imgs/c5.png')
+	import {getAllMessage} from "../api/requestApi";
+
+  const img5 = require('../imgs/c5.png')
 	import Register from '@/components/Register.vue'
 	import Login from '@/components/Login.vue'
 	export default {
 		props: {
-			comments: Array,
-			msg: Object,
-			isNight:Boolean
+			isNight:false
 		},
   mounted() {
-   
+   this.getAllMessage()
   },
 		data() {
 			return {
-				dialogFormVisible: false,
+        msg: {},
+        comments: [],
+        dialogFormVisible: false,
 				isVisible: false,
 				active: 'active',
 				defaultClass: 'defaultClass',
@@ -131,6 +112,15 @@
 			Login
 		},
 		methods:{
+      confirm() {
+        this.dialogFormVisible = false
+        this.$refs.login.login();
+      },
+      getAllMessage() {
+        getAllMessage().then(res => {
+          this.comments=res.data
+        });
+      },
 			  onSelect(item) {
 			      this.show = false;
 			      if(item.name==='登录'){

@@ -1,14 +1,14 @@
 <template>
 	<div>
 		<div class="register-pc">
-			<el-form :model="ruleForm" status-icon :rules="rules" ref="ruleForm" label-width="100px" class="demo-ruleForm">
+			<el-form  status-icon  ref="ruleForm" label-width="100px" class="demo-ruleForm">
 
 				<el-form-item label="昵称" prop="name">
-					<el-input v-model="ruleForm.name"></el-input>
+					<el-input v-model="name"></el-input>
 				</el-form-item>
 
 				<el-form-item label="密码" prop="pass">
-					<el-input type="password" v-model="ruleForm.pass" autocomplete="off"></el-input>
+					<el-input type="password" v-model="pass" autocomplete="off"></el-input>
 				</el-form-item>
 				<el-form-item label="确认密码" prop="checkPass">
 					<el-input type="password" v-model="ruleForm.checkPass" autocomplete="off"></el-input>
@@ -21,9 +21,10 @@
 </template>
 
 <script>
+import {register} from "../api/requestApi";
+
 	export default {
 		data() {
-
 			var validatePass = (rule, value, callback) => {
 				if (value === '') {
 					callback(new Error('请输入密码'));
@@ -46,6 +47,8 @@
 				}
 			};
 			return {
+			  name:'',
+        pass:'',
 				ruleForm: {
 					checkPass: '',
 					name: '',
@@ -92,6 +95,14 @@
 			};
 		},
 		methods: {
+      register() {
+        register({
+          userName:this.name,
+          userPass:this.pass
+        }).then(res => {
+
+        });
+      },
 			submitForm(formName) {
 				this.$refs[formName].validate((valid) => {
 					if (valid) {

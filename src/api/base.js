@@ -1,5 +1,5 @@
 import axios from "axios";
-
+import {Message} from 'element-ui'
 const http = axios.create({
   baseURL: 'http://localhost:8888/',
   timeout: 60 * 1000 * 5,
@@ -19,10 +19,16 @@ export function get(url, params) {
       params: params
     })
       .then(res => {
-        resolve(res.data)
+        if (res.data.code == 200) {
+            Message.success("成功");
+        } else {
+            Message.error(res.data.msg);
+        }
+        resolve(res.data);
       })
       .catch(err => {
         reject(err.data)
+          Message.error("系统繁忙，请稍后重试");
       })
   })
 }
@@ -39,10 +45,17 @@ export function jsonpost(url, params) {
 
     http.post(url, JSON.stringify(params))
       .then(res => {
+        if (res.data.code == 200) {
+            Message.success("成功");
+        } else {
+            Message.error(res.data.msg);
+        }
         resolve(res.data)
       })
       .catch(err => {
         reject(err.data)
+          Message.error("系统繁忙，请稍后重试");
+
       })
   })
 }
@@ -54,10 +67,17 @@ export function jsonget(url, params) {
       params: params
     })
       .then(res => {
+        if (res.data.code == 200) {
+          this.Message.success("成功");
+        } else {
+            Message.error(res.data.msg);
+        }
         resolve(res.data)
       })
       .catch(err => {
         reject(err.data)
+        Message.error("系统繁忙，请稍后重试");
+
       })
   })
 }

@@ -11,7 +11,7 @@
 				</span>
 			</div>
 			<div class="article-detail">
-				<div class="title">{{article.title}}</div>
+				<div class="title">{{article.aTitle}}</div>
 				<div class="msg">
 					<div class="author author2">
 						<div v-show="!isNight" class="icon"><img src="../imgs/user2.png" alt=""></div>
@@ -26,7 +26,7 @@
 				</div>
 
 				<div class="content">
-					{{article.content}}
+					{{article.aContent}}
 				</div>
 
 				<div class="money">

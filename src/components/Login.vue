@@ -58,13 +58,12 @@
 	    },
 	    methods: {
         login() {
+
           login({
             userPass:this.ruleForm.pass,
-            phoneNumber:this.ruleForm.name
+            userName:this.ruleForm.name
           }).then(res => {
-            if (res.code == 200) {
-              this.$message.success("登录成功")
-            }
+              localStorage.setItem("user",JSON.stringify(res.data))
           });
         },
 	      submitForm(formName) {
